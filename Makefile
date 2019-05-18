@@ -1,6 +1,6 @@
 VERSION = 3
 PATCHLEVEL = 18
-SUBLEVEL = 136
+SUBLEVEL = 139
 EXTRAVERSION =
 # Repurposed for custom banner use, set in build.sh
 # See "filechk_version.h" below, and init/version.c
@@ -372,7 +372,7 @@ CFLAGS_KCOV	= -fsanitize-coverage=trace-pc
 # compatible with -mcpu
 #ARM_ARCH_OPT := -mcpu=cortex-a57+crc+crypto
 GEN_OPT_FLAGS := $(call cc-option,$(ARM_ARCH_OPT),-march=armv8-a+crc+crypto) \
- -g0 -DNDEBUG \
+ -g0 -DNDEBUG -ftree-vectorize \
  -mcpu=kryo -mno-fix-cortex-a53-835769 $(MK_FLAGS)
 
 # Use USERINCLUDE when you must reference the UAPI directories only.
